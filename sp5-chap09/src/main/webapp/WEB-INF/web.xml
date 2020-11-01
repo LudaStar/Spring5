@@ -28,10 +28,10 @@
 		<load-on-startup>1</load-on-startup> <!-- 톰캣과 같은 컨테이너가 웹 어플리케이션을 구동할 때 이 서블릿을 함께 실행하도록 설정한다. -->
 	</servlet>
 
-	<servlet-mapping> <!-- 모든 요청을 DispatcherServlet이 처리하도록 서블릿 매핑을 설정했다 url이 /인것 -> 모든 url-->
+	<servlet-mapping> <!-- 모든 요청을 DispatcherServlet이 처리하도록 서블릿 매핑을 설정했다 -->
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+		<url-pattern>/</url-pattern> <!-- 매핑 경로가 '/'인 경우 .jsp로 끝나는 요청을 제외한 모든 요청을 DispatcherServlet이 처리한다. --> 
+	</servlet-mapping>	<!-- @EnableWebMvc 애노테이션이 등록하는 HandlerMapping은 @Controller 애노테이션을 적용한 빈 객체가 처리할 수 있는 요청 경로만 대응할 수 있다. -->
 
 	<filter>
 		<filter-name>encodingFilter</filter-name> <!-- HTTP 요청 파라미터의 인코딩 처리를 위한 서블릿 필터 -->
